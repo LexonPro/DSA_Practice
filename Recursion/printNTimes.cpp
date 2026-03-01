@@ -8,7 +8,7 @@ void Print_n(char str[],int n){
       }
 
         Print_n(str,n-1);
-        cout<<str<<endl;
+        cout << n << ": " << str << " " << endl;
 }
 int main(){
     int n;
