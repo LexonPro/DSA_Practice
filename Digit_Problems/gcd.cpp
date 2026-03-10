@@ -13,7 +13,7 @@ int main(){
             hcf=i;
         }
     }
-    cout<<"GCD or HCF of "<<num1<<" and "<<num2<<" is "<<hcf;
+    cout<<"GCD or HCF of  two numbers "<<num1<<" and "<<num2<<" is "<<hcf;
     
 
 }
