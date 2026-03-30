@@ -1,0 +1,60 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        bool firstRowHasZero = false;
+        bool firstColHasZero = false;
+        
+        // 1. Check if the first column needs to be zeroed
+        for(int i = 0; i < m; i++) {
+            if(matrix[i][0] == 0) {
+                firstColHasZero = true;
+                break;
+            }
+        }
+
+        // 2. Check if the first row needs to be zeroed
+        for(int j = 0; j < n; j++) {
+            if(matrix[0][j] == 0) {
+                firstRowHasZero = true;
+                break;
+            }
+        }
+        
+        // 3. Use first row/col as markers for the rest of the matrix
+        for(int i = 1; i < m; i++) {
+            for(int j = 1; j < n; j++) {
+                if(matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+
+        // 4. Zero out cells based on markers
+        for(int i = 1; i < m; i++) {
+            for(int j = 1; j < n; j++) {
+                if(matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        // 5. Finally, handle the markers themselves
+        // If the original first row had a zero, zero out the whole first row
+        if(firstRowHasZero) {
+            for(int j = 0; j < n; j++) {
+                matrix[0][j] = 0;
+            }
+        }
+
+        // If the original first column had a zero, zero out the whole first column
+        if(firstColHasZero) {
+            for(int i = 0; i < m; i++) {
+                matrix[i][0] = 0;
+            }
+        }
+    }
+};
