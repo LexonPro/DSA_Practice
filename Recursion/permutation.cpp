@@ -5,7 +5,8 @@ void permutation(string str,int beg,int end){
     if (beg == end)
     {
         cout << str << endl;
-        return;    
+        return;
+        
     }
     
     for (int i = beg; i <= end; i++)
